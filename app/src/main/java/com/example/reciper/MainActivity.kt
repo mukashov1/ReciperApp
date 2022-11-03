@@ -9,5 +9,4 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
     // Baha durys bop tur ma?
-    // Durys istep turgan siakty
 }
