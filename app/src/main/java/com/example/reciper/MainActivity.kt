@@ -8,5 +8,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-    // Baha durys bop tur ma?
+    //  -Baha durys bop tur ma?
+    //  -Ia
 }
