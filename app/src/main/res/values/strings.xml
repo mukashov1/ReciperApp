@@ -10,4 +10,10 @@
     <string name="asd">TODO</string>
     <string name="multilines">Already have and account?\nLog in</string>
     <string name="create_account">Create Account</string>
+    <string name="search">Search</string>
+    <string name="egg">egg</string>
+    <string name="egg_Benedict"></string>
+    <string name="green_pouched_egg_salad">green pouched egg salad</string>
+    <string name="spanish_egg_on_toast">spanish egg on toast</string>
+    <string name="bacon_and_egg_sandwich">bacon and egg sandwich</string>
 </resources>
