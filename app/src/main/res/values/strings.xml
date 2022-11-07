@@ -26,5 +26,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="asdasdasdasdasd">TODO</string>
-    <string name="let_s_start_making_making_good_meals">Let\'s start making making good meals</string>
+    <string name="let_s_start_making_making_good_meals">Let\'s start making  good meals</string>
+    <string name="your_email">Your Email</string>
+    <string name="password">Password</string>
 </resources>
