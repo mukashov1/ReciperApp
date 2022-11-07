@@ -11,6 +11,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.doszhan_log_in_page)
+        setContentView(R.layout.doszhan_sign_up_page)
     }
 }
