@@ -8,7 +8,7 @@
     <string name="good_food">Good Food</string>
     <string name="nutritionally_balanced_easy_to_cook_recipes_quality_fresh_local_ingredients">Nutritionally balanced, easy to cook recipes. Quality fresh local ingredients.</string>
     <string name="asd">TODO</string>
-    <string name="multilines">Already have and account?\nLog in</string>
+    <string name="multilines">Already have an account?\nLog in</string>
     <string name="create_account">Create Account</string>
     <string name="search">Search</string>
     <string name="egg">egg</string>
@@ -25,4 +25,9 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="asdasdasdasdasd">TODO</string>
+    <string name="let_s_start_making_making_good_meals">Let\'s start making  good meals</string>
+    <string name="your_email">Your Email</string>
+    <string name="password">Password</string>
+    <string name="i_agree_with_terms_of_privacy"> I agree with the terms of privacy</string>
 </resources>

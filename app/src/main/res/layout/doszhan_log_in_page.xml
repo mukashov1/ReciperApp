@@ -71,7 +71,8 @@
             android:layout_width="300sp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
-            android:text="I agree with terms of privacy" />
+            android:minHeight="48dp"
+            android:text="@string/i_agree_with_terms_of_privacy" />
 
     </LinearLayout>
 
