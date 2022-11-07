@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/transparent"
         android:text="@string/log_in"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -82,7 +83,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:minHeight="48dp"
-            android:text="@string/i_agree_with_terms_of_privacy" />
+            android:text="@string/i_agree_with_terms_of_privacy"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     </LinearLayout>
 
