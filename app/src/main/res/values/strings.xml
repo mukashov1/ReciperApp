@@ -31,4 +31,7 @@
     <string name="password">Password</string>
     <string name="i_agree_with_terms_of_privacy"> I agree with the terms of privacy</string>
     <string name="log_in">Log in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="we_are_glad_to_see_you_again">We are glad to see you again</string>
+    <string name="remember_me">remember me</string>
 </resources>

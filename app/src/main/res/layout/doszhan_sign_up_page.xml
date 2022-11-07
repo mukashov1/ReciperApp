@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/transparent"
-        android:text="@string/log_in"
+        android:text="@string/sign_up"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -19,7 +20,8 @@
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/button6">
+        app:layout_constraintTop_toBottomOf="@+id/button6"
+        tools:ignore="UnknownIdInLayout">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -28,18 +30,18 @@
             android:backgroundTint="@android:color/transparent"
             android:contentDescription="@string/asdasdasdasdasd"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/the_cooking_process" />
+            app:srcCompat="@drawable/_303623835_h_1024x700" />
 
         <TextView
             android:id="@+id/textView4"
+            tools:ignore="TextContrastCheck"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
-            android:text="@string/let_s_start_making_making_good_meals"
+            android:text="@string/we_are_glad_to_see_you_again"
             android:textAlignment="center"
             android:textColor="#D7A63C"
-            android:textSize="32sp"
-            tools:ignore="TextContrastCheck" />
+            android:textSize="32sp" />
 
         <EditText
             android:id="@+id/editTextTextEmailAddress"
@@ -74,18 +76,18 @@
             android:layout_height="48dp"
             android:layout_marginTop="30dp"
             android:backgroundTint="#F0DDB6"
-            android:text="@string/create_account"
-            android:textColor="@color/black" />
+            android:text="Log In"
+            android:textColor="@color/black"
+            tools:ignore="HardcodedText" />
 
         <Switch
             android:id="@+id/switch2"
-            android:layout_width="300sp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:minHeight="48dp"
-            android:text="@string/i_agree_with_terms_of_privacy"
+            android:text="@string/remember_me"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
