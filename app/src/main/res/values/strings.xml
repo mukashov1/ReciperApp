@@ -30,4 +30,23 @@
     <string name="your_email">Your Email</string>
     <string name="password">Password</string>
     <string name="i_agree_with_terms_of_privacy"> I agree with the terms of privacy</string>
+    <string name="kazakh_ndelicious">Kazakh \nDelicious</string>
+    <string name="health_vegan_life">Health Vegan Life</string>
+    <string name="national_dish_of_uzbekistan">National dish of Uzbekistan</string>
+    <string name="cooked_rice">Pilaf</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="_5_cook_and_cover_allow_the_plov_to_come_to_a_simmer_turn_the_heat_down_low_pop_the_lid_on_and_cook_for_an_additional_40_50_minutes">5 Cook and Cover: Allow the plov to come to a simmer. Turn the heat down low, pop the lid on, and cook for an additional 40-50 minutes.</string>
+    <string name="_4_add_rice_and_seasoning_add_long_grain_rice_and_bay_leaves_to_the_dutch_oven_stirring_until_ingredients_are_evenly_distributed_and_toasting_the_rice_slightly_slice_off_the_top_of_a_head_of_garlic_and_place_the_entire_head_inside_the_dutch_oven_add_water_and_season_generously_with_salt_and_pepper">4 Add Rice and Seasoning: Add long grain rice and bay leaves to the Dutch oven, stirring until ingredients are evenly distributed, and toasting the rice slightly. Slice off the top of a head of garlic and place the entire head inside the Dutch oven. Add water and season generously with salt and pepper.</string>
+    <string name="_3_cook_the_veggies_add_onions_and_carrots_to_the_dutch_oven_saut_ing_until_the_onions_turn_translucent">3 Cook the Veggies: Add onions and carrots to the Dutch oven, sautéing until the onions turn translucent.</string>
+    <string name="_2_brown_the_meat_in_a_preheated_dutch_oven_use_tongs_to_brown_the_sides_of_the_meat">2 Brown the Meat: In a preheated Dutch oven, use tongs to brown the sides of the meat.</string>
+    <string name="_1_prep_the_meat_and_veggies_cut_the_meat_into_cubes_slice_carrots_and_dice_onions">1 Prep the Meat and Veggies: Cut the meat into cubes, slice carrots, and dice onions.</string>
+    <string name="no_article_on_uzbek_food_can_ever_be_complete_without_plov_the_country_s_national_dish_it_refers_to_the_uzbek_version_of_hearty_rice_pilaf_a_widely_consumed_dish_of_rice_cooked_in_broth_that_originated_in_south_asia_central_asia_and_the_middle_east_plov_or_palov_is_the_most_famous_dish_in_uzbekistan">No article on Uzbek food can ever be complete without plov, the country\'s national dish. It refers to the Uzbek version of hearty rice pilaf, a widely consumed dish of rice cooked in broth that originated in South Asia, Central Asia, and the Middle East. Plov (or palov) is the most famous dish in Uzbekistan.</string>
+    <string name="description">Description</string>
+    <string name="_90_min">90 min</string>
+    <string name="cook_time">Cook Time</string>
+    <string name="_30min">30min</string>
+    <string name="prep_time">Prep Time</string>
+    <string name="medium">Medium</string>
+    <string name="todo123">TODO</string>
+    <string name="todo12">TODO</string>
 </resources>
