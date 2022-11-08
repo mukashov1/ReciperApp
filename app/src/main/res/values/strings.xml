@@ -3,7 +3,6 @@
     <string name="good_cooking">Good Cooking</string>
     <string name="deliciously_simple">Deliciously Simple</string>
     <string name="start_cooking">Start Cooking</string>
-    <string name="todo">TODO</string>
     <string name="adasd">TODO</string>
     <string name="good_food">Good Food</string>
     <string name="nutritionally_balanced_easy_to_cook_recipes_quality_fresh_local_ingredients">Nutritionally balanced, easy to cook recipes. Quality fresh local ingredients.</string>
@@ -33,7 +32,7 @@
     <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
     <string name="we_are_glad_to_see_you_again">We are glad to see you again</string>
-    <string name="remember_me">remember me</string>
+    <string name="remember_me">Remember me</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
