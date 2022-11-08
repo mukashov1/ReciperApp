@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/doszhan_nav"
+    app:startDestination="@id/doszhan_welcome_page2">
+    <fragment
+        android:id="@+id/doszhan_welcome_page2"
+        android:name="com.example.reciper.doszhan_welcome_page"
+        android:label="fragment_doszhan_welcome_page"
+        tools:layout="@layout/fragment_doszhan_welcome_page" >
+        <action
+            android:id="@+id/action_doszhan_welcome_page2_to_doszhan_second_page"
+            app:destination="@id/doszhan_second_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/doszhan_second_page"
+        android:name="com.example.reciper.doszhan_second_page"
+        android:label="fragment_doszhan_second_page"
+        tools:layout="@layout/fragment_doszhan_second_page" >
+        <action
+            android:id="@+id/action_doszhan_second_page_to_doszhan_welcome_page2"
+            app:destination="@id/doszhan_welcome_page2" />
+        <action
+            android:id="@+id/action_doszhan_second_page_to_doszhan_log_in_page"
+            app:destination="@id/doszhan_log_in_page" />
+        <action
+            android:id="@+id/action_doszhan_second_page_to_doszhan_sign_up_page"
+            app:destination="@id/doszhan_sign_up_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/doszhan_log_in_page"
+        android:name="com.example.reciper.doszhan_log_in_page"
+        android:label="fragment_doszhan_log_in_page"
+        tools:layout="@layout/fragment_doszhan_log_in_page" >
+        <action
+            android:id="@+id/action_doszhan_log_in_page_to_doszhan_second_page"
+            app:destination="@id/doszhan_second_page" />
+        <action
+            android:id="@+id/action_doszhan_log_in_page_to_doszhan_sign_up_page"
+            app:destination="@id/doszhan_sign_up_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/doszhan_sign_up_page"
+        android:name="com.example.reciper.doszhan_sign_up_page"
+        android:label="fragment_doszhan_sign_up_page"
+        tools:layout="@layout/fragment_doszhan_sign_up_page" >
+        <action
+            android:id="@+id/action_doszhan_sign_up_page_to_doszhan_second_page"
+            app:destination="@id/doszhan_second_page" />
+        <action
+            android:id="@+id/action_doszhan_sign_up_page_to_doszhan_log_in_page"
+            app:destination="@id/doszhan_log_in_page" />
+    </fragment>
+</navigation>
