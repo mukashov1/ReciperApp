@@ -1,19 +1,12 @@
 package com.example.reciper
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.SearchView
-import android.widget.Toast
-import androidx.core.os.bundleOf
-import androidx.navigation.Navigation
+import android.widget.TextView
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,16 +15,13 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Search.newInstance] factory method to
+ * Use the [FoodCard.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Search : Fragment() {
+class FoodCard : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var recyclerView: RecyclerView
-    lateinit var foodList: ArrayList<Food>
-    private lateinit var foodAdapter: FoodAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,24 +35,22 @@ class Search : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_search, container, false)
+        val root = inflater.inflate(R.layout.fragment_food_card, container, false)
 
-        recyclerView = root.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.setHasFixedSize(true)
-        foodList = arrayListOf<Food>()
-        foodList.add(Food("Pizza" , "The classic pile-up"))
-        foodList.add(Food("Pizza2" , "The classic pile-up"))
-        foodList.add(Food("Pizza3" , "The classic pile-up"))
-        foodList.add(Food("Pizza" , "The classic pile-up"))
-        foodList.add(Food("Pizza" , "The classic pile-up"))
+        val args = FoodCardArgs.fromBundle(requireArguments())
+        val foodName: TextView = root.findViewById(R.id.foodCardName)
+        val foodDescription: TextView = root.findViewById(R.id.descriptionText)
 
-        foodAdapter = FoodAdapter(foodList)
-        recyclerView.adapter = foodAdapter
+        foodName.text = args.food.foodName
+        foodDescription.text = args.food.foodDescription
+
+        val foodBack: TextView = root.findViewById(R.id.foodBack)
+        foodBack.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_foodCard_to_search)
+        }
 
         return root;
     }
-
 
     companion object {
         /**
@@ -71,12 +59,12 @@ class Search : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Search.
+         * @return A new instance of fragment FoodCard.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Search().apply {
+            FoodCard().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

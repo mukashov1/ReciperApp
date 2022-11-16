@@ -6,15 +6,29 @@
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/drawable/add_to_fav_bg.xml" value="0.3665" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.3665" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/drawable/line.xml" value="0.3675" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/drawable/san.xml" value="0.196" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/activity_main2.xml" value="0.25" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/activity_main3.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/doszhan_second_page.xml" value="0.15" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/doszhan_welcome_page.xml" value="0.18" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/food_card_b.xml" value="0.5" />
-        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/fragment_home.xml" value="0.2708333333333333" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/fragment_doszhan_log_in_page.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/fragment_doszhan_second_page.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/fragment_doszhan_sign_up_page.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/fragment_doszhan_welcome_page.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/fragment_food_card.xml" value="0.2271174863387978" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/fragment_profile.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/fragment_saved.xml" value="0.17447916666666666" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/fragment_search.xml" value="0.3016304347826087" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/good_food.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/layout.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/layout2.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/list_item.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/nurzhalgas_k_page.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/nurzhalgas_profile.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/search.xml" value="0.5" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/search_item.xml" value="0.33" />
         <entry key="..\:/Users/baha2/OneDrive/Documents/GitHub/ReciperApp/app/src/main/res/layout/search_result_item.xml" value="0.33" />
