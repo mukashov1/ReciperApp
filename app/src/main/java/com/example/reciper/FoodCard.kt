@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +25,8 @@ class FoodCard : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var ingredientAdopter: IngredientAdopter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,28 +34,49 @@ class FoodCard : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_food_card, container, false)
+        val root  = inflater.inflate(R.layout.fragment_food_card, container, false)
+
 
         val args = FoodCardArgs.fromBundle(requireArguments())
         val foodName: TextView = root.findViewById(R.id.foodCardName)
+        val isFavorite: TextView = root.findViewById(R.id.addToFavBtn)
         val foodDescription: TextView = root.findViewById(R.id.descriptionText)
 
         foodName.text = args.food.foodName
+        if (args.food.isFavorite == "false") {
+            isFavorite.isClickable = false
+        }
+        isFavorite.setOnClickListener {
+//            viewModel.addToFav(args.food)
+            isFavorite.text = "Favorite"
+            Toast.makeText(context, "This food already favorite!!!" , Toast.LENGTH_LONG).show()
+        }
         foodDescription.text = args.food.foodDescription
+
+        recyclerView = root.findViewById(R.id.ingredientRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.setHasFixedSize(true)
+        ingredientAdopter = IngredientAdopter(args.food.ingredientList)
+        recyclerView.adapter = ingredientAdopter
 
         val foodBack: TextView = root.findViewById(R.id.foodBack)
         foodBack.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_foodCard_to_search)
+            if(foodName.text == "Beshbarmak")
+                view.findNavController().navigate(R.id.action_foodCard_to_home)
+            else
+                view.findNavController().navigate(R.id.action_foodCard_to_search)
         }
-
-        return root;
+        return root
     }
+
 
     companion object {
         /**
