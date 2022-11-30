@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.databinding.*
+import com.example.reciper.databinding.SearchBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,8 +30,11 @@ class Search : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var recyclerView: RecyclerView
-    lateinit var foodList: ArrayList<Food>
     private lateinit var foodAdapter: FoodAdapter
+
+    private lateinit var binding: SearchBinding
+
+    private val viewModel: SearchViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,28 +49,15 @@ class Search : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_search, container, false)
-
-        recyclerView = root.findViewById(R.id.recyclerView)
+        binding = SearchBinding.inflate(inflater, container, false)
+        recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
 
-        var ingredientList = arrayListOf(
-            Ingredient("2 - stick unsalted butter") ,
-            Ingredient("3 - English muffins, opened"),
-            Ingredient("6 - Eggs, plus 3 egg yolks, divided"),
-            Ingredient("2 - Tablespoons lemon juice"),
-            Ingredient("3 - English muffins, opened"),
-            Ingredient("3 - English muffins, opened"),
-            Ingredient("3 - English muffins, opened"),)
-
-        foodList = arrayListOf(
-            Food("Pizza" , "false" , "The classic pile-up" , ingredientList),)
-
-        foodAdapter = FoodAdapter(foodList)
+        foodAdapter = FoodAdapter(viewModel.foodList)
         recyclerView.adapter = foodAdapter
 
-        return root;
+        return binding.root;
     }
 
 

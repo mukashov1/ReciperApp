@@ -1,15 +1,16 @@
 package com.example.reciper
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.reciper.databinding.FragmentFoodCardBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +28,9 @@ class FoodCard : Fragment() {
     private var param2: String? = null
     private lateinit var recyclerView: RecyclerView
     private lateinit var ingredientAdopter: IngredientAdopter
+    private lateinit var binding: FragmentFoodCardBinding
+
+    private val viewModel: SearchViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,39 +46,44 @@ class FoodCard : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root  = inflater.inflate(R.layout.fragment_food_card, container, false)
-
+        binding = FragmentFoodCardBinding.inflate(inflater, container, false)
 
         val args = FoodCardArgs.fromBundle(requireArguments())
-        val foodName: TextView = root.findViewById(R.id.foodCardName)
-        val isFavorite: TextView = root.findViewById(R.id.addToFavBtn)
-        val foodDescription: TextView = root.findViewById(R.id.descriptionText)
+        val food = args.food
+        val isFavorite: TextView = binding.addToFavBtn
+        val foodDescription: TextView = binding.descriptionText
 
-        foodName.text = args.food.foodName
-        if (args.food.isFavorite == "false") {
+        binding.foodCardName.text = food.foodName
+        if (food.isFavorite == "false") {
             isFavorite.isClickable = false
         }
         isFavorite.setOnClickListener {
-//            viewModel.addToFav(args.food)
-            isFavorite.text = "Favorite"
-            Toast.makeText(context, "This food already favorite!!!" , Toast.LENGTH_LONG).show()
+            if (isFavorite.text == "Favorite") {
+                isFavorite.text = "Add to Fav"
+                viewModel.removeFromFav(food)
+
+            } else {
+                isFavorite.text = "Favorite"
+                viewModel.addToFav(food)
+            }
+
         }
         foodDescription.text = args.food.foodDescription
 
-        recyclerView = root.findViewById(R.id.ingredientRecyclerView)
+        recyclerView = binding.ingredientRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
         ingredientAdopter = IngredientAdopter(args.food.ingredientList)
         recyclerView.adapter = ingredientAdopter
 
-        val foodBack: TextView = root.findViewById(R.id.foodBack)
-        foodBack.setOnClickListener { view : View ->
-            if(foodName.text == "Beshbarmak")
+        val foodBack: TextView = binding.foodBack
+        foodBack.setOnClickListener { view: View ->
+            if (binding.foodCardName.text == "Beshbarmak")
                 view.findNavController().navigate(R.id.action_foodCard_to_home)
             else
                 view.findNavController().navigate(R.id.action_foodCard_to_search)
         }
-        return root
+        return binding.root
     }
 
 

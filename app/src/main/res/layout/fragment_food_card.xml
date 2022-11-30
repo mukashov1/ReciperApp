@@ -70,6 +70,7 @@
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="4dp"
                 android:text="Add To Fav"
+                android:textColor="@android:color/black"
                 app:layout_constraintBaseline_toBaselineOf="@+id/rating"
                 app:layout_constraintEnd_toStartOf="@+id/guideline7"/>
 
