@@ -1,11 +1,47 @@
 package com.example.reciper
 
+import android.content.ContentValues.TAG
+import android.nfc.Tag
+import android.os.Handler
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 class SearchViewModel: ViewModel() {
+
+    private val _response = MutableLiveData<String>()
+
+    val response: LiveData<String>
+        get() = _response
+
+    private val _properties = MutableLiveData<Menu>()
+
+    val properties: LiveData<Menu>
+        get() = _properties
+
+
+    init {
+        getFoodProperties()
+        Handler().postDelayed({
+            println(_properties.value)
+        }, 1000)
+    }
+
+    private fun getFoodProperties() {
+        viewModelScope.launch {
+            try {
+                _properties.value = SearchApi.retrofitService.getProperties()
+                _response.value = "Success: Mars properties retrieved"
+            } catch (e: Exception) {
+                _response.value = "Failure: ${e.message}"
+            }
+        }
+    }
+
+
 
     private var _favList = mutableListOf<Food>()
     val favList: MutableList<Food>
@@ -47,5 +83,4 @@ class SearchViewModel: ViewModel() {
 
         println(_favList)
     }
-
 }
