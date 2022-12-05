@@ -2,8 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/search">
+    android:id="@+id/search_ragment"
+    app:startDestination="@id/home">
 
     <fragment
         android:id="@+id/search"
@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_search_to_foodCard"
             app:destination="@id/foodCard" />
-        <action
-            android:id="@+id/action_search_to_foodMenu"
-            app:destination="@id/foodMenu" />
     </fragment>
     <fragment
         android:id="@+id/saved"
@@ -50,14 +47,5 @@
         <action
             android:id="@+id/action_home_to_foodCard"
             app:destination="@id/foodCard" />
-    </fragment>
-    <fragment
-        android:id="@+id/foodMenu"
-        android:name="com.example.reciper.FoodMenu"
-        android:label="fragment_food_menu"
-        tools:layout="@layout/fragment_food_menu" >
-        <action
-            android:id="@+id/action_foodMenu_to_search"
-            app:destination="@id/search" />
     </fragment>
 </navigation>
