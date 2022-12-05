@@ -6,21 +6,17 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.reciper.search.SearchViewModel" />
+            type="com.example.reciper.SearchViewModel" />
 
         <variable
             name="title"
-            type="com.example.reciper.search.Search" />
+            type="com.example.reciper.Search" />
     </data>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".search.Search"
+        tools:context=".Search"
         android:background="#F1F1F1">
 
 
@@ -70,41 +66,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
-            <Button
-                android:id="@+id/btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Get Data"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
-
-            <ImageView
-                android:id="@+id/menuimg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:imageUrl="@{viewModel.property.image}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn"
-                tools:src="@tools:sample/avatars" />
-
-            <TextView
-                android:id="@+id/menuTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{viewModel.property.title}"
-                tools:text="Burger"
-                android:textColor="@color/black"
-                android:textSize="26sp"
-                app:layout_constraintEnd_toEndOf="@+id/menuimg"
-                app:layout_constraintStart_toStartOf="@+id/menuimg"
-                app:layout_constraintTop_toBottomOf="@+id/menuimg" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>
-
-
-    </ScrollView>
 
 </layout>

@@ -1,4 +1,4 @@
-package com.example.reciper.food
+package com.example.reciper
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.reciper.R
 
 class FoodAdapter(private val foodList: ArrayList<Food>) : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
 
@@ -26,7 +25,7 @@ class FoodAdapter(private val foodList: ArrayList<Food>) : RecyclerView.Adapter<
         holder.textView.text = food.foodName
 
         holder.itemView.setOnClickListener {
-//            it.findNavController().navigate(com.example.reciper.search.SearchDirections.actionSearchToFoodCard(food)))
+            it.findNavController().navigate(com.example.reciper.SearchDirections.actionSearchToFoodCard(food))
         }
     }
 

@@ -2,12 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/search_ragment"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/search">
 
     <fragment
         android:id="@+id/search"
-        android:name="com.example.reciper.search.Search"
+        android:name="com.example.reciper.Search"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -29,7 +29,7 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/foodCard"
-        android:name="com.example.reciper.food.FoodCard"
+        android:name="com.example.reciper.FoodCard"
         android:label="fragment_food_card"
         tools:layout="@layout/fragment_food_card" >
         <action

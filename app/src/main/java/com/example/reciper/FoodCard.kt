@@ -1,4 +1,4 @@
-package com.example.reciper.food
+package com.example.reciper
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,9 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.reciper.R
 import com.example.reciper.databinding.FragmentFoodCardBinding
-import com.example.reciper.search.SearchViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,32 +45,32 @@ class FoodCard : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_food_card, container, false)
 
-        val args = com.example.reciper.FoodCardArgs.fromBundle(requireArguments())
+        val args = FoodCardArgs.fromBundle(requireArguments())
         val food = args.food
         val isFavorite: TextView = binding.addToFavBtn
         val foodDescription: TextView = binding.descriptionText
 
-//        binding.foodCardName.text = food.foodName
-//        if (food.isFavorite == "false") {
-//            isFavorite.isClickable = false
-//        }
-//        isFavorite.setOnClickListener {
-//            if (isFavorite.text == "Favorite") {
-//                isFavorite.text = "Add to Fav"
-//                viewModel.removeFromFav(food)
-//
-//            } else {
-//                isFavorite.text = "Favorite"
-//                viewModel.addToFav(food)
-//            }
-//
-//        }
-//        foodDescription.text = args.food.foodDescription
+        binding.foodCardName.text = food.foodName
+        if (food.isFavorite == "false") {
+            isFavorite.isClickable = false
+        }
+        isFavorite.setOnClickListener {
+            if (isFavorite.text == "Favorite") {
+                isFavorite.text = "Add to Fav"
+                viewModel.removeFromFav(food)
+
+            } else {
+                isFavorite.text = "Favorite"
+                viewModel.addToFav(food)
+            }
+
+        }
+        foodDescription.text = args.food.foodDescription
 
         recyclerView = binding.ingredientRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
-        ingredientAdopter = IngredientAdopter(args.food.ingredientList)
+//        ingredientAdopter = IngredientAdopter(args.food.ingredientList)
         recyclerView.adapter = ingredientAdopter
 
         val foodBack: TextView = binding.foodBack

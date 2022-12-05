@@ -1,4 +1,4 @@
-package com.example.reciper.search
+package com.example.reciper
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,8 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.reciper.API.Menu
 import com.example.reciper.API.SearchApi
-import com.example.reciper.food.Food
-import com.example.reciper.food.Ingredient
 import kotlinx.coroutines.launch
 
 class SearchViewModel: ViewModel() {

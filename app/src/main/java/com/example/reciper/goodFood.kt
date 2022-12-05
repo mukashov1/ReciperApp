@@ -5,11 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.cardview.widget.CardView
-import androidx.navigation.findNavController
-import com.example.reciper.food.Food
-import com.example.reciper.food.Ingredient
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,18 +49,7 @@ class goodFood : Fragment() {
         val cardView1 = root.findViewById<CardView>(R.id.card_vegan1)
         val cardView2 = root.findViewById<CardView>(R.id.card_vegan2)
 
-        val linear: LinearLayout = root.findViewById(R.id.linearLayout)
-        linear.setOnClickListener{
-            it.findNavController().navigate(goodFoodDirections.actionHomeToFoodCard(Food(foodName = "Beshbarmak" , ingredientList = ingredientList)))
-        }
 
-        cardView1.setOnClickListener{
-            it.findNavController().navigate(goodFoodDirections.actionHomeToFoodCard(Food(foodName = "Beshbarmak" , ingredientList = ingredientList)))
-        }
-
-        cardView2.setOnClickListener{
-            it.findNavController().navigate(goodFoodDirections.actionHomeToFoodCard(Food(foodName = "Beshbarmak" , ingredientList = ingredientList)))
-        }
 
         return root
     }

@@ -1,11 +1,10 @@
-package com.example.reciper.food
+package com.example.reciper
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.reciper.R
 
 class IngredientAdopter(private  val ingredientList: ArrayList<Ingredient>): RecyclerView.Adapter<IngredientAdopter.IngredientViewHolder>() {
 

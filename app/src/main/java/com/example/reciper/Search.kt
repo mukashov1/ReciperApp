@@ -1,17 +1,14 @@
-package com.example.reciper.search
+package com.example.reciper
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.databinding.*
 import androidx.lifecycle.ViewModelProvider
-import com.example.reciper.food.FoodAdapter
-import com.example.reciper.R
 import com.example.reciper.databinding.FragmentSearchBinding
 
 class Search : Fragment() {
@@ -48,9 +45,6 @@ class Search : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        binding.btn.setOnClickListener {
-            it.findNavController().navigate(com.example.reciper.search.SearchDirections.actionSearchToFoodMenu())
-        }
         return binding.root;
     }
 
