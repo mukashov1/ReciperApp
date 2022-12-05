@@ -8,21 +8,26 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
 
-class doszhan_welcome_page : Fragment() {
+class SecondPage : Fragment() {
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_doszhan_welcome_page, container, false)
+        return inflater.inflate(R.layout.fragment_second_page, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val b: Button = view.findViewById(R.id.btn)
+        val b: Button = view.findViewById(R.id.button)
         b.setOnClickListener(){
-            Navigation.findNavController(view).navigate(R.id.action_doszhan_welcome_page2_to_doszhan_second_page)
+            Navigation.findNavController(view).navigate(R.id.action_second_page_to_log_in_page)
+        }
+        val b2: Button = view.findViewById(R.id.button2)
+        b2.setOnClickListener(){
+            Navigation.findNavController(view).navigate(R.id.action_second_page_to_sign_up_page)
         }
     }
 }

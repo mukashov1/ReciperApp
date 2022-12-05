@@ -8,14 +8,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
 
-class doszhan_log_in_page : Fragment() {
+class LogInPage : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_doszhan_log_in_page, container, false)
+        return inflater.inflate(R.layout.fragment_log_in_page, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -23,7 +23,7 @@ class doszhan_log_in_page : Fragment() {
 
         val b: Button = view.findViewById(R.id.button6)
         b.setOnClickListener(){
-            Navigation.findNavController(view).navigate(R.id.action_doszhan_log_in_page_to_doszhan_sign_up_page)
+            Navigation.findNavController(view).navigate(R.id.action_log_in_page_to_sign_up_page)
         }
     }
 }
