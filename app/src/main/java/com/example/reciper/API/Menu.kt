@@ -1,4 +1,4 @@
-package com.example.reciper
+package com.example.reciper.API
 
 
 import com.squareup.moshi.Json

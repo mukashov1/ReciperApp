@@ -7,15 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.reciper.databinding.FragmentFoodMenuBinding
 import com.example.reciper.databinding.FragmentSearchBinding
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 
 class FoodMenu : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
 //    private lateinit var menuAdapter: MenuAdopter
-    private lateinit var binding: FragmentFoodMenuBinding
+//    private lateinit var binding: FragmentFoodMenuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,8 @@ class FoodMenu : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFoodMenuBinding.inflate(inflater,container,false)
+        val root = inflater.inflate(R.layout.fragment_food_menu, container, false)
+//        binding = FragmentFoodMenuBinding.inflate(inflater,container,false)
 
 //        recyclerView = binding.apiRecyclerView
 //        recyclerView.layoutManager = LinearLayoutManager(context)
@@ -35,7 +36,7 @@ class FoodMenu : Fragment() {
 //        menuAdapter = MenuAdopter()
 //        recyclerView.adapter = menuAdapter
 
-        return binding.root
+        return root
     }
 
 }

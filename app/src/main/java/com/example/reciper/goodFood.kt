@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.fragment.app.findFragment
 import androidx.navigation.findNavController
+import com.example.reciper.food.Food
+import com.example.reciper.food.Ingredient
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

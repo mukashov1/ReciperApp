@@ -1,27 +1,26 @@
-package com.example.reciper
+package com.example.reciper.food
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.reciper.R
 import com.example.reciper.databinding.FragmentFoodCardBinding
+import com.example.reciper.search.SearchViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FoodCard.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class FoodCard : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -46,29 +45,29 @@ class FoodCard : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFoodCardBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_food_card, container, false)
 
-        val args = FoodCardArgs.fromBundle(requireArguments())
+        val args = com.example.reciper.FoodCardArgs.fromBundle(requireArguments())
         val food = args.food
         val isFavorite: TextView = binding.addToFavBtn
         val foodDescription: TextView = binding.descriptionText
 
-        binding.foodCardName.text = food.foodName
-        if (food.isFavorite == "false") {
-            isFavorite.isClickable = false
-        }
-        isFavorite.setOnClickListener {
-            if (isFavorite.text == "Favorite") {
-                isFavorite.text = "Add to Fav"
-                viewModel.removeFromFav(food)
-
-            } else {
-                isFavorite.text = "Favorite"
-                viewModel.addToFav(food)
-            }
-
-        }
-        foodDescription.text = args.food.foodDescription
+//        binding.foodCardName.text = food.foodName
+//        if (food.isFavorite == "false") {
+//            isFavorite.isClickable = false
+//        }
+//        isFavorite.setOnClickListener {
+//            if (isFavorite.text == "Favorite") {
+//                isFavorite.text = "Add to Fav"
+//                viewModel.removeFromFav(food)
+//
+//            } else {
+//                isFavorite.text = "Favorite"
+//                viewModel.addToFav(food)
+//            }
+//
+//        }
+//        foodDescription.text = args.food.foodDescription
 
         recyclerView = binding.ingredientRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)

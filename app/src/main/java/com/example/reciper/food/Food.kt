@@ -1,4 +1,4 @@
-package com.example.reciper
+package com.example.reciper.food
 
 import android.os.Parcel
 import android.os.Parcelable

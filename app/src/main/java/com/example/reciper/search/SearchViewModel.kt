@@ -1,13 +1,13 @@
-package com.example.reciper
+package com.example.reciper.search
 
-import android.content.ContentValues.TAG
-import android.nfc.Tag
-import android.os.Handler
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.reciper.API.Menu
+import com.example.reciper.API.SearchApi
+import com.example.reciper.food.Food
+import com.example.reciper.food.Ingredient
 import kotlinx.coroutines.launch
 
 class SearchViewModel: ViewModel() {
@@ -22,25 +22,30 @@ class SearchViewModel: ViewModel() {
     val properties: LiveData<Menu>
         get() = _properties
 
+    private val _property = MutableLiveData<Menu.MenuItem>()
+
+    val property: LiveData<Menu.MenuItem>
+        get() = _property
 
     init {
         getFoodProperties()
-        Handler().postDelayed({
-            println(_properties.value)
-        }, 1000)
     }
 
     private fun getFoodProperties() {
         viewModelScope.launch {
             try {
-                _properties.value = SearchApi.retrofitService.getProperties()
-                _response.value = "Success: Mars properties retrieved"
+                val listResult = SearchApi.retrofitService.getProperties().menuItems
+                _response.value = "Success: ${listResult.size} Mars properties retrieved"
+                if (listResult.size > 0) {
+                    _property.value = listResult[0]
+                }
+
+
             } catch (e: Exception) {
                 _response.value = "Failure: ${e.message}"
             }
         }
     }
-
 
 
     private var _favList = mutableListOf<Food>()
