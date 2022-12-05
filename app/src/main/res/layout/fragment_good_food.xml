@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp">
 
     <View
@@ -11,9 +10,10 @@
         android:layout_width="13dp"
         android:layout_height="26dp"
         android:background="@drawable/back_button"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="15dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/good_day"
+        app:layout_constraintEnd_toStartOf="@+id/good_day"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/good_day"
@@ -26,18 +26,17 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="10dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/ic_baseline_more_horiz_24"
+        app:layout_constraintBottom_toBottomOf="@+id/good_day"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="8dp"
-        />
+        app:layout_constraintStart_toEndOf="@+id/good_day"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/vegan_life"
@@ -47,22 +46,22 @@
         android:text="@string/health_vegan_life"
         android:textColor="#000000"
         android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="456dp" />
+        android:layout_marginVertical="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_vegan1"
         android:layout_width="150dp"
         android:layout_height="120dp"
-        android:layout_marginTop="25dp"
         android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
         app:cardBackgroundColor="#000000"
         app:cardCornerRadius="20dp"
         app:cardElevation="3dp"
-        app:layout_constraintStart_toStartOf="parent"
 
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vegan_life">
 
         <ImageView
@@ -71,7 +70,6 @@
             android:layout_gravity="top"
             android:scaleType="centerCrop"
             android:src="@drawable/vegan_dish1" />
-
 
 
     </androidx.cardview.widget.CardView>
@@ -102,13 +100,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
         android:text="Sweet and Sour \nChickpeas over rice in \nblack bowl \n12min."
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/card_vegan1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_vegan1" />
+        app:layout_constraintTop_toBottomOf="@+id/card_vegan1" />
 
     <TextView
+        android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -116,9 +115,11 @@
         android:text="spaghetti aglio e olio \n36min."
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/card_vegan2"
         app:layout_constraintTop_toBottomOf="@id/card_vegan1" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -210,6 +211,7 @@
 
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

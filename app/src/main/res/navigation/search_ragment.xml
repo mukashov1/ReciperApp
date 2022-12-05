@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_ragment"
+    app:startDestination="@id/search">
+
+    <fragment
+        android:id="@+id/search"
+        android:name="com.example.reciper.Search"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_to_foodCard"
+            app:destination="@id/foodCard" />
+        <action
+            android:id="@+id/action_search_to_foodMenu"
+            app:destination="@id/foodMenu" />
+    </fragment>
+    <fragment
+        android:id="@+id/saved"
+        android:name="com.example.reciper.Saved"
+        android:label="fragment_saved"
+        tools:layout="@layout/fragment_saved" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.reciper.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/foodCard"
+        android:name="com.example.reciper.FoodCard"
+        android:label="fragment_food_card"
+        tools:layout="@layout/fragment_food_card" >
+        <action
+            android:id="@+id/action_foodCard_to_search"
+            app:destination="@id/search" />
+        <argument
+            android:name="Food"
+            app:argType="com.example.reciper.Food" />
+        <action
+            android:id="@+id/action_foodCard_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.reciper.goodFood"
+        android:label="fragment_good_food"
+        tools:layout="@layout/fragment_good_food" >
+        <action
+            android:id="@+id/action_home_to_foodCard"
+            app:destination="@id/foodCard" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodMenu"
+        android:name="com.example.reciper.FoodMenu"
+        android:label="fragment_food_menu"
+        tools:layout="@layout/fragment_food_menu" >
+        <action
+            android:id="@+id/action_foodMenu_to_search"
+            app:destination="@id/search" />
+    </fragment>
+</navigation>
