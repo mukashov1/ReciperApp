@@ -25,7 +25,7 @@ class FoodAdapter(private val foodList: ArrayList<Food>) : RecyclerView.Adapter<
         holder.textView.text = food.foodName
 
         holder.itemView.setOnClickListener {
-            it.findNavController().navigate(com.example.reciper.SearchDirections.actionSearchToFoodCard(food))
+            it.findNavController().navigate(SearchDirections.actionSearchToFoodCard(food))
         }
     }
 

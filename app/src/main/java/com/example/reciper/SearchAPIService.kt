@@ -1,6 +1,6 @@
-package com.example.reciper.API
+package com.example.reciper
 
-import com.squareup.moshi.Json
+import com.example.reciper.API.Recipe
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "https://api.spoonacular.com"
+private const val BASE_URL = "https://api.spoonacular.com/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -20,8 +20,8 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface SearchApiService {
-    @GET("/complexSearch?apiKey=30653edd10e243d29b4019e462618292&query=pizza&number=1&fillIngredients=true&addRecipeInformation=true")
-    suspend fun getProperties(): Menu
+    @GET("recipes/complexSearch?apiKey=30653edd10e243d29b4019e462618292&query=pizza&number=6&fillIngredients=true&addRecipeInformation=true")
+    suspend fun getProperties(): Recipe
 }
 
 object SearchApi {
