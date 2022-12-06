@@ -1,27 +1,36 @@
 package com.example.reciper
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.net.toUri
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.example.reciper.databinding.FragmentFoodCardBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FoodCard.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class FoodCard : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var ingredientAdopter: IngredientAdopter
+    private lateinit var binding: FragmentFoodCardBinding
+
+    private val viewModel: SearchViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,28 +38,69 @@ class FoodCard : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_food_card, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_food_card, container, false)
 
         val args = FoodCardArgs.fromBundle(requireArguments())
-        val foodName: TextView = root.findViewById(R.id.foodCardName)
-        val foodDescription: TextView = root.findViewById(R.id.descriptionText)
+        val food = args.food
+        val image = args.food.image
+        val isFavorite: TextView = binding.addToFavBtn
+        val foodDescription: TextView = binding.descriptionText
+        if (image != null) {
 
-        foodName.text = args.food.foodName
-        foodDescription.text = args.food.foodDescription
-
-        val foodBack: TextView = root.findViewById(R.id.foodBack)
-        foodBack.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_foodCard_to_search)
+            image?.let {
+                val imgUri =
+                    image.toUri().buildUpon().scheme("https").build()
+                Glide.with(binding.foodImage.context)
+                    .load(imgUri)
+                    .apply(
+                        RequestOptions()
+                            .placeholder(R.drawable.loading_animation)
+                    )
+                    .into(binding.foodImage)
+            }
         }
 
-        return root;
+        binding.foodCardName.text = food.foodName
+//        if (food.isFavorite == "false") {
+//            isFavorite.isClickable = false
+//        }
+//        isFavorite.setOnClickListener {
+//            if (isFavorite.text == "Favorite") {
+//                isFavorite.text = "Add to Fav"
+//                viewModel.removeFromFav(food)
+//
+//            } else {
+//                isFavorite.text = "Favorite"
+//                viewModel.addToFav(food)
+//            }
+//
+//        }
+        foodDescription.text = args.food.foodDescription
+
+        recyclerView = binding.ingredientRecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.setHasFixedSize(true)
+        ingredientAdopter = IngredientAdopter(args.food.ingredientList)
+        recyclerView.adapter = ingredientAdopter
+
+        val foodBack: TextView = binding.foodBack
+        foodBack.setOnClickListener { view: View ->
+            if (binding.foodCardName.text == "Beshbarmak")
+                view.findNavController().navigate(R.id.action_foodCard_to_home)
+            else
+                view.findNavController().navigate(R.id.action_foodCard_to_search)
+        }
+        return binding.root
     }
+
 
     companion object {
         /**
