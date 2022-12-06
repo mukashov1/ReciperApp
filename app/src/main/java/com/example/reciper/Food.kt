@@ -3,7 +3,7 @@ package com.example.reciper
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Food(var foodName : String, var isFavorite: String = "false", var foodDescription: String = "The classic pile-up", var ingredientList: ArrayList<Ingredient>): Parcelable {
+data class Food(var foodName : String, var isFavorite: String = "false", var foodDescription: String = "The classic pile-up", var ingredientList: ArrayList<Ingredient>, var image: String? = null): Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
@@ -11,7 +11,8 @@ data class Food(var foodName : String, var isFavorite: String = "false", var foo
         parcel.readString()!!,
         arrayListOf<Ingredient>().apply {
             parcel.readList(this, Ingredient::class.java.classLoader)
-        }
+        },
+        parcel.readString()!!
     ) {
     }
 
@@ -20,6 +21,7 @@ data class Food(var foodName : String, var isFavorite: String = "false", var foo
         parcel.writeString(isFavorite)
         parcel.writeString(foodDescription)
         parcel.writeList(ingredientList)
+        parcel.writeString(image)
     }
 
     override fun describeContents(): Int {

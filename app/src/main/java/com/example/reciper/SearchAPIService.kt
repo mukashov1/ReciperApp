@@ -1,6 +1,6 @@
 package com.example.reciper
 
-import com.squareup.moshi.Json
+import com.example.reciper.API.Recipe
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
@@ -20,8 +20,8 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface SearchApiService {
-    @GET("food/menuItems/search?apiKey=30653edd10e243d29b4019e462618292&query=burger&number=1")
-    suspend fun getProperties(): Menu
+    @GET("recipes/complexSearch?apiKey=026650c07a2848098b13a3adc1afb378&query=pizza&number=9&fillIngredients=true&addRecipeInformation=true")
+    suspend fun getProperties(): Recipe
 }
 
 object SearchApi {

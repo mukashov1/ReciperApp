@@ -5,11 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.net.toUri
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.reciper.databinding.FragmentFoodCardBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -17,11 +21,7 @@ import com.example.reciper.databinding.FragmentFoodCardBinding
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FoodCard.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class FoodCard : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -46,28 +46,43 @@ class FoodCard : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFoodCardBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_food_card, container, false)
 
         val args = FoodCardArgs.fromBundle(requireArguments())
         val food = args.food
+        val image = args.food.image
         val isFavorite: TextView = binding.addToFavBtn
         val foodDescription: TextView = binding.descriptionText
+        if (image != null) {
+
+            image?.let {
+                val imgUri =
+                    image.toUri().buildUpon().scheme("https").build()
+                Glide.with(binding.foodImage.context)
+                    .load(imgUri)
+                    .apply(
+                        RequestOptions()
+                            .placeholder(R.drawable.loading_animation)
+                    )
+                    .into(binding.foodImage)
+            }
+        }
 
         binding.foodCardName.text = food.foodName
-        if (food.isFavorite == "false") {
-            isFavorite.isClickable = false
-        }
-        isFavorite.setOnClickListener {
-            if (isFavorite.text == "Favorite") {
-                isFavorite.text = "Add to Fav"
-                viewModel.removeFromFav(food)
-
-            } else {
-                isFavorite.text = "Favorite"
-                viewModel.addToFav(food)
-            }
-
-        }
+//        if (food.isFavorite == "false") {
+//            isFavorite.isClickable = false
+//        }
+//        isFavorite.setOnClickListener {
+//            if (isFavorite.text == "Favorite") {
+//                isFavorite.text = "Add to Fav"
+//                viewModel.removeFromFav(food)
+//
+//            } else {
+//                isFavorite.text = "Favorite"
+//                viewModel.addToFav(food)
+//            }
+//
+//        }
         foodDescription.text = args.food.foodDescription
 
         recyclerView = binding.ingredientRecyclerView
