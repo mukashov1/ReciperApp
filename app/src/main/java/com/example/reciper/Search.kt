@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.databinding.*
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.reciper.databinding.FragmentSearchBinding
 
 class Search : Fragment() {
@@ -38,8 +39,9 @@ class Search : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
 
         recyclerView = binding.recyclerView
-        recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager =
+            GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
 
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
@@ -52,8 +54,6 @@ class Search : Fragment() {
             foodAdapter = FoodAdapter(foodList)
             recyclerView.adapter = foodAdapter
         }, 3000)
-
-
 
         return binding.root;
     }

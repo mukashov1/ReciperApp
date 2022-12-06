@@ -5,10 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.reciper.API.Recipe
-import com.example.reciper.databinding.FragmentSearchBinding
 import kotlinx.coroutines.launch
 
-class SearchViewModel(): ViewModel() {
+class SearchViewModel : ViewModel() {
 
     private val _response = MutableLiveData<String>()
 
@@ -29,19 +28,27 @@ class SearchViewModel(): ViewModel() {
         getFoodProperties()
     }
 
-    fun getFoodProperties() {
+    private fun getFoodProperties() {
         viewModelScope.launch {
-        println(SearchApi.retrofitService.getProperties())
             try {
                 val listResult = SearchApi.retrofitService.getProperties().results
-                    println("FFFFFFFF")
+                println("FFFFFF")
                 _response.value = "Success: ${listResult.size} Mars properties retrieved"
                 if (listResult.size > 0) {
                     _property.value = listResult[0]
                     var recipe = listResult[0]
                     for (i in listResult.indices) {
                         recipe = listResult[i]
-                        _foodList.add(0,Food(recipe.title,"false",recipe.summary, setIngredient(recipe.extendedIngredients),recipe.image))
+                        _foodList.add(
+                            0,
+                            Food(
+                                recipe.title,
+                                "false",
+                                recipe.summary,
+                                setIngredient(recipe.extendedIngredients),
+                                recipe.image
+                            )
+                        )
                     }
                     println(foodList)
                 }
@@ -50,6 +57,8 @@ class SearchViewModel(): ViewModel() {
             } catch (e: Exception) {
                 _response.value = "Failure: ${e.message}"
             }
+
+            println("RESPONSE :   ${_response.value}")
         }
     }
 
@@ -83,7 +92,7 @@ class SearchViewModel(): ViewModel() {
 
     fun addToFav(food: Food) {
         var favFood1 = food.copy(isFavorite = "true")
-        if (!_favList.contains(favFood1))  {
+        if (!_favList.contains(favFood1)) {
             _favList.add(favFood1)
         }
         _foodList[_foodList.indexOf(food)].isFavorite == "true"
@@ -91,8 +100,8 @@ class SearchViewModel(): ViewModel() {
     }
 
     fun removeFromFav(food: Food) {
-            var favFood2 = food.copy(isFavorite = "true")
-        if (_favList.contains(favFood2))  {
+        var favFood2 = food.copy(isFavorite = "true")
+        if (_favList.contains(favFood2)) {
             _favList.remove(favFood2)
         }
         _foodList[_foodList.indexOf(food)].isFavorite == "false"

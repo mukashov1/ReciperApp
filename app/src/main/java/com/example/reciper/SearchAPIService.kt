@@ -20,7 +20,7 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface SearchApiService {
-    @GET("recipes/complexSearch?apiKey=30653edd10e243d29b4019e462618292&query=pizza&number=6&fillIngredients=true&addRecipeInformation=true")
+    @GET("recipes/complexSearch?apiKey=026650c07a2848098b13a3adc1afb378&query=pizza&number=9&fillIngredients=true&addRecipeInformation=true")
     suspend fun getProperties(): Recipe
 }
 
