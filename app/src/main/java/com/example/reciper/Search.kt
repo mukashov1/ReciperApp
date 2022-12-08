@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
@@ -28,10 +29,6 @@ class Search : Fragment() {
         ViewModelProvider(this)[SearchViewModel::class.java]
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,17 +42,28 @@ class Search : Fragment() {
 
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-
         var foodList = arrayListOf<Food>()
-        Handler().postDelayed({
+        binding.searchBtn.setOnClickListener {
+            viewModel.getFoodProperties(binding.searchView.query.toString().lowercase())
             println("WWWW")
-            foodList = viewModel.foodList
-            println(foodList)
-            foodAdapter = FoodAdapter(foodList)
-            recyclerView.adapter = foodAdapter
-        }, 3000)
+            Handler().postDelayed({
+                foodList = viewModel.foodList
+                println(foodList)
+                foodAdapter = FoodAdapter(foodList)
+                recyclerView.adapter = foodAdapter
+            }, 3000)
 
-        return binding.root;
+            if (viewModel.response.value?.contains("Success") == true && foodList.size == 0) {
+                Toast.makeText(
+                    context,
+                    "We can't find \"${binding.searchView.query}\" \nEnter another food!!!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
+        }
+
+        return binding.root
     }
 
 }

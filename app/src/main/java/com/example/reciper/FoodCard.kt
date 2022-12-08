@@ -16,16 +16,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.reciper.databinding.FragmentFoodCardBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-
 class FoodCard : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
     private lateinit var recyclerView: RecyclerView
     private lateinit var ingredientAdopter: IngredientAdopter
     private lateinit var binding: FragmentFoodCardBinding
@@ -34,12 +25,6 @@ class FoodCard : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-
-
     }
 
     override fun onCreateView(
@@ -70,19 +55,19 @@ class FoodCard : Fragment() {
 
         binding.foodCardName.text = food.foodName
 //        if (food.isFavorite == "false") {
-//            isFavorite.isClickable = false
 //        }
-//        isFavorite.setOnClickListener {
-//            if (isFavorite.text == "Favorite") {
-//                isFavorite.text = "Add to Fav"
-//                viewModel.removeFromFav(food)
-//
-//            } else {
-//                isFavorite.text = "Favorite"
-//                viewModel.addToFav(food)
-//            }
-//
-//        }
+//            isFavorite.isClickable = true
+        isFavorite.setOnClickListener {
+            if (isFavorite.text == "Favorite") {
+                isFavorite.text = "Add to Fav"
+                viewModel.removeFromFav(food)
+
+            } else {
+                isFavorite.text = "Favorite"
+                viewModel.addToFav(food)
+            }
+
+        }
         foodDescription.text = args.food.foodDescription
 
         recyclerView = binding.ingredientRecyclerView
@@ -99,26 +84,5 @@ class FoodCard : Fragment() {
                 view.findNavController().navigate(R.id.action_foodCard_to_search)
         }
         return binding.root
-    }
-
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FoodCard.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FoodCard().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }
