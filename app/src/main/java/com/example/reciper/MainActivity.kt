@@ -16,10 +16,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = navHostFragment.navController
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.navBar)
         setupWithNavController(bottomNavigationView , navController)
+    }}
 
 //        replaceFragment(Home())
 //        val navBar = findViewById<BottomNavigationView>(R.id.navBar)
@@ -38,13 +40,11 @@ class MainActivity : AppCompatActivity() {
 //        }
 
 
-    }
+
 
 //    private fun replaceFragment(fragment: Fragment) {
 //        val fragmentManager = supportFragmentManager
 //        val fragmentTransaction = fragmentManager.beginTransaction()
 //        fragmentTransaction.replace(R.id.frameLayout , fragment)
 //        fragmentTransaction.commit()
-//    }
 
-}
