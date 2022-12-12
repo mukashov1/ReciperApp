@@ -33,7 +33,7 @@
             android:backgroundTint="@android:color/transparent"
             android:contentDescription="@string/asdasdasdasdasd"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/the_cooking_process" />
+            app:srcCompat="@drawable/_303623835_h_1024x700"  />
 
         <TextView
             android:id="@+id/textView4"
