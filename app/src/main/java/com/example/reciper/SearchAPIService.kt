@@ -7,6 +7,8 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 private const val BASE_URL = "https://api.spoonacular.com/"
 
@@ -20,8 +22,11 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface SearchApiService {
-    @GET("recipes/complexSearch?apiKey=026650c07a2848098b13a3adc1afb378&query=pizza&number=9&fillIngredients=true&addRecipeInformation=true")
-    suspend fun getProperties(): Recipe
+    @GET("recipes/complexSearch?apiKey=026650c07a2848098b13a3adc1afb378&number=6&fillIngredients=true&addRecipeInformation=true")
+    suspend fun getProperties(
+        @Query("query")
+        query: String
+    ): Recipe
 }
 
 object SearchApi {

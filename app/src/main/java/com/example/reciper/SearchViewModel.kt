@@ -24,14 +24,14 @@ class SearchViewModel : ViewModel() {
     val property: LiveData<Recipe.Result>
         get() = _property
 
-    init {
-        getFoodProperties()
-    }
+//    init {
+//        getFoodProperties()
+//    }
 
-    private fun getFoodProperties() {
+    fun getFoodProperties(query: String = "pizza") {
         viewModelScope.launch {
             try {
-                val listResult = SearchApi.retrofitService.getProperties().results
+                val listResult = SearchApi.retrofitService.getProperties(query).results
                 println("FFFFFF")
                 _response.value = "Success: ${listResult.size} Mars properties retrieved"
                 if (listResult.size > 0) {
@@ -95,8 +95,8 @@ class SearchViewModel : ViewModel() {
         if (!_favList.contains(favFood1)) {
             _favList.add(favFood1)
         }
-        _foodList[_foodList.indexOf(food)].isFavorite == "true"
-        println(_favList)
+//        _foodList[_foodList.indexOf(food)].isFavorite == "true"
+//        println(_favList)
     }
 
     fun removeFromFav(food: Food) {
@@ -104,7 +104,7 @@ class SearchViewModel : ViewModel() {
         if (_favList.contains(favFood2)) {
             _favList.remove(favFood2)
         }
-        _foodList[_foodList.indexOf(food)].isFavorite == "false"
+//        _foodList[_foodList.indexOf(food)].isFavorite == "false"
 
         println(_favList)
     }
